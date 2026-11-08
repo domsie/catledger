@@ -49,19 +49,15 @@ class RandomizedOracleTests(unittest.TestCase):
             lengths = [rng.randint(30, 120) for _ in range(rng.randint(1, 4))]
             demands = [{"id": f"P{i}", "length_mm": length, "quantity": 1}
                        for i, length in enumerate(lengths)]
-            stock = [{"id": f"S{i}", "length_mm": rng.randint(max(lengths), 240),
+            stock = [{"id": f"S{i}", "length_mm": rng.randint(max(lengths) + 14, 240),
                       "quantity": rng.randint(1, 2), "cost_cents": rng.randint(0, 12),
                       "trim_start_mm": rng.randint(0, 5), "trim_end_mm": rng.randint(0, 5)}
                      for i in range(rng.randint(1, 3))]
             kerf = rng.randint(0, 4)
             threshold = rng.randint(0, 120)
-            try:
-                p = parse_problem({"job_id": f"case_{case}", "kerf_mm": kerf,
-                                   "min_reusable_offcut_mm": threshold,
-                                   "demands": demands, "stock": stock})
-            except InputError:
-                # Some random stock trim combinations have no stock long enough.
-                continue
+            p = parse_problem({"job_id": f"case_{case}", "kerf_mm": kerf,
+                               "min_reusable_offcut_mm": threshold,
+                               "demands": demands, "stock": stock})
             target = brute_force(p)
             if target is None:
                 infeasible_count += 1
@@ -77,6 +73,7 @@ class RandomizedOracleTests(unittest.TestCase):
                     self.assertTrue(actual["proven_optimal"])
         self.assertGreater(feasible_count, 20)
         self.assertGreater(infeasible_count, 5)
+        self.assertEqual(feasible_count + infeasible_count, 100)
 
 
 if __name__ == "__main__":
