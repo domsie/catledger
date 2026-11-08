@@ -26,6 +26,7 @@ python -m pip install -e .
 catledger plan examples/workshop.json --format text
 catledger plan examples/workshop.json --output plan.json --svg layout.svg
 catledger verify examples/workshop.json plan.json
+catledger verify examples/workshop.json examples/expected-workshop.plan.json
 catledger plan examples/offcut_first.json --mode heuristic --output alternative.json
 catledger compare examples/workshop.json plan.json plan.json
 ```

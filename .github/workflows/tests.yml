@@ -28,3 +28,4 @@ jobs:
         run: |
           python -m catledger plan examples/offcut_first.json --output ci-plan.json
           python -m catledger verify examples/offcut_first.json ci-plan.json
+          python -m catledger verify examples/workshop.json examples/expected-workshop.plan.json

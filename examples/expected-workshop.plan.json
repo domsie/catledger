@@ -1,0 +1,122 @@
+{
+  "boards": [
+    {
+      "board_id": "board_2100-001",
+      "cost_cents": 590,
+      "kerf_total_mm": 12,
+      "leftover_mm": 343,
+      "length_mm": 2100,
+      "pieces": [
+        {
+          "demand_id": "rail_long",
+          "length_mm": 970
+        },
+        {
+          "demand_id": "brace",
+          "length_mm": 255
+        },
+        {
+          "demand_id": "brace",
+          "length_mm": 255
+        },
+        {
+          "demand_id": "brace",
+          "length_mm": 255
+        }
+      ],
+      "reusable_offcut_mm": 343,
+      "stock_id": "board_2100",
+      "stock_kind": "new",
+      "trim_end_mm": 5,
+      "trim_start_mm": 5,
+      "usable_mm": 2090,
+      "used_mm": 1747
+    },
+    {
+      "board_id": "board_2100-002",
+      "cost_cents": 590,
+      "kerf_total_mm": 6,
+      "leftover_mm": 144,
+      "length_mm": 2100,
+      "pieces": [
+        {
+          "demand_id": "rail_long",
+          "length_mm": 970
+        },
+        {
+          "demand_id": "rail_long",
+          "length_mm": 970
+        }
+      ],
+      "reusable_offcut_mm": 0,
+      "stock_id": "board_2100",
+      "stock_kind": "new",
+      "trim_end_mm": 5,
+      "trim_start_mm": 5,
+      "usable_mm": 2090,
+      "used_mm": 1946
+    },
+    {
+      "board_id": "offcut_1300-001",
+      "cost_cents": 0,
+      "kerf_total_mm": 6,
+      "leftover_mm": 46,
+      "length_mm": 1300,
+      "pieces": [
+        {
+          "demand_id": "rail_short",
+          "length_mm": 620
+        },
+        {
+          "demand_id": "rail_short",
+          "length_mm": 620
+        }
+      ],
+      "reusable_offcut_mm": 0,
+      "stock_id": "offcut_1300",
+      "stock_kind": "offcut",
+      "trim_end_mm": 4,
+      "trim_start_mm": 4,
+      "usable_mm": 1292,
+      "used_mm": 1246
+    },
+    {
+      "board_id": "offcut_1300-002",
+      "cost_cents": 0,
+      "kerf_total_mm": 6,
+      "leftover_mm": 46,
+      "length_mm": 1300,
+      "pieces": [
+        {
+          "demand_id": "rail_short",
+          "length_mm": 620
+        },
+        {
+          "demand_id": "rail_short",
+          "length_mm": 620
+        }
+      ],
+      "reusable_offcut_mm": 0,
+      "stock_id": "offcut_1300",
+      "stock_kind": "offcut",
+      "trim_end_mm": 4,
+      "trim_start_mm": 4,
+      "usable_mm": 1292,
+      "used_mm": 1246
+    }
+  ],
+  "input_sha256": "5e9f35eb5f211f4a77a42e5dcbfe774e9ee99d3b10656ceac637f95b72da24a0",
+  "job_id": "shelving_demo",
+  "kerf_per_cut_mm": 3,
+  "min_reusable_offcut_mm": 300,
+  "objective": {
+    "boards_used": 4,
+    "material_cost_cents": 1180,
+    "total_leftover_mm": 579,
+    "unrecoverable_mm": 302
+  },
+  "planning_method": "exact",
+  "proven_optimal": true,
+  "schema_version": 1,
+  "search_nodes": 293
+}

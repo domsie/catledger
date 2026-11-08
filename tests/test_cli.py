@@ -7,9 +7,10 @@ import sys
 import tempfile
 import unittest
 
-from catledger.model import parse_problem
+from catledger.model import load_problem, parse_problem
 from catledger.render import as_csv, as_svg, as_text
 from catledger.solver import solve
+from catledger.verify import verify_plan
 
 ROOT = Path(__file__).resolve().parents[1]
 EXAMPLE = ROOT / "examples" / "offcut_first.json"
@@ -34,6 +35,13 @@ class CliTests(unittest.TestCase):
         data = json.loads(result.stdout)
         self.assertEqual(data["job_id"], "offcut_reuse_demo")
         self.assertTrue(data["proven_optimal"])
+
+    def test_golden_workshop_plan_still_verifies(self):
+        job = load_problem(ROOT / "examples" / "workshop.json")
+        saved = json.loads((ROOT / "examples" / "expected-workshop.plan.json").read_text(encoding="utf-8"))
+        objective = verify_plan(job, saved)
+        self.assertEqual(objective["material_cost_cents"], 1180)
+        self.assertEqual(objective["boards_used"], 4)
 
     def test_text_output(self):
         p = run_cli("plan", EXAMPLE, "--format", "text")
