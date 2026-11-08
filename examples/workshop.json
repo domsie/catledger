@@ -1,0 +1,15 @@
+{
+  "job_id": "shelving_demo",
+  "kerf_mm": 3,
+  "min_reusable_offcut_mm": 300,
+  "demands": [
+    {"id": "rail_long", "length_mm": 970, "quantity": 3},
+    {"id": "rail_short", "length_mm": 620, "quantity": 4},
+    {"id": "brace", "length_mm": 255, "quantity": 3}
+  ],
+  "stock": [
+    {"id": "offcut_1300", "length_mm": 1300, "quantity": 2, "cost_cents": 0, "kind": "offcut", "trim_start_mm": 4, "trim_end_mm": 4},
+    {"id": "board_2100", "length_mm": 2100, "quantity": 4, "cost_cents": 590, "kind": "new", "trim_start_mm": 5, "trim_end_mm": 5},
+    {"id": "board_3000", "length_mm": 3000, "quantity": 2, "cost_cents": 810, "kind": "new", "trim_start_mm": 5, "trim_end_mm": 5}
+  ]
+}

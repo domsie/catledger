@@ -1,0 +1,13 @@
+{
+  "job_id": "offcut_reuse_demo",
+  "kerf_mm": 2,
+  "min_reusable_offcut_mm": 250,
+  "demands": [
+    {"id": "shelf", "length_mm": 600, "quantity": 2},
+    {"id": "side", "length_mm": 800, "quantity": 1}
+  ],
+  "stock": [
+    {"id": "scrap_900", "length_mm": 900, "quantity": 2, "cost_cents": 0, "kind": "offcut"},
+    {"id": "new_2400", "length_mm": 2400, "quantity": 2, "cost_cents": 1250, "kind": "new"}
+  ]
+}
