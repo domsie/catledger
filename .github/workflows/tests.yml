@@ -1,0 +1,30 @@
+name: Python test matrix
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  unit-and-integration:
+    name: ${{ matrix.os }} / Python ${{ matrix.python-version }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ['3.11', '3.12', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install local package
+        run: python -m pip install -e .
+      - name: Run stdlib test suite
+        run: python -m unittest discover -s tests -p "test_*.py" -v
+      - name: Produce and verify synthetic plan
+        run: |
+          python -m catledger plan examples/offcut_first.json --output ci-plan.json
+          python -m catledger verify examples/offcut_first.json ci-plan.json
